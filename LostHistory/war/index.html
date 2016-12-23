@@ -24,16 +24,16 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
     
-    
+ 	  <div ng-hide="loggedin">   	
       <li><button type="button" class="btn btn-default navbar-btn" ng-click ="login()" > {{textLogin}}</button></li>
-      <li><button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Sign up</button></li>
+      </div>
+      <div ng-show="loggedin">
+      <li style ="color:white;"> {{user.name}} <img ng-src="{{user.picture}}" class=img-circle width=40px height=40px ></img>
+     <button type="button"  ng-click="logout()" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-in"></span></button></li>
+      </div>
     </ul>
   </div>
 </nav>
- <div ng-show="user">
- <p>Hi {{user.name}}!</p>
-	
-</div>
 
  
 
@@ -52,9 +52,8 @@
 	</body>
 
 	    <!-- Javascript  -->
-	  	<script src="angular.js"> </script>
-	  	<script src="angular.min.js"> </script>
-	  	<script src="jquery.min.js"> </script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="angular-google-gapi/dist/angular-google-gapi.js"> </script>
 		<script src="angular-google-gapi/dist/angular-google-gapi.min.js"> </script>
 		<script src="app.js"></script>

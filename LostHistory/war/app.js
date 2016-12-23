@@ -13,19 +13,33 @@ app.run(['GAuth', function(GAuth) {
 
 app.controller('MainController', ['$scope','GAuth', function($scope, GAuth) {
     $scope.user = null;
-    //$sope.loggedin = false;
+    $scope.loggedin = false;
     $scope.textLogin = "Login";
     
     $scope.login = function() {
         GAuth.login().then(function(user) {
             $scope.user = user;
-            $scope.textLogin = "<img ng-src=\"{{user.picture}}\" class=\"img-circle\" width=\"40px\" height=\"40px\" ></img>".trustAsHtml();
-            console.log(user);
+            //$scope.textLogin = "<img ng-src=\"{{user.picture}}\" class=\"img-circle\" width=\"40px\" height=\"40px\" ></img>".trustAsHtml();
+            $scope.loggedin = true;
+            console.log("USER : " + user);
+            console.log("PICTURE : " + user.picture);
         }, function() {
             console.log("Oups! Failure to connect...");
         });
    
     };
+    
+   
+    
+    $scope.logout = function() {
+        GAuth.signOut();
+        $scope.user = null;
+        $scope.loggedin = false;
+        console.log("Bye .. ");
+   
+    };
+    
+
      
   
 
