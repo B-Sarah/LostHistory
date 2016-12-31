@@ -25,3 +25,24 @@ body {
  .img-circle {
         border-radius: 50%;
     }
+    
+ 
+	.btn-sample { 
+  color: #F0EFCC; 
+  background-color: #000000; 
+  border-color: #F0EFCC; 
+  margin: 0 auto;
+  
+}
+
+.home {
+    padding-top: 140px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #f8f8f8;
+}
+
+.lock{
+	font-size:12px;
+}
+
