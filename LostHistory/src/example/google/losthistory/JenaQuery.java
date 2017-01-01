@@ -3,6 +3,7 @@ package example.google.losthistory;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -37,6 +38,19 @@ order by ?nom
 
 @Api(name="battleEndpoint", version="v1")
 public class JenaQuery {
+	
+	List<Score> highscores = new ArrayList<Score>();
+	
+	@ApiMethod (name="insertScore", httpMethod=ApiMethod.HttpMethod.GET)
+	public void InsertScore(@Named("username") String username, @Named("score") int score){
+		highscores.add(new Score(username, score));
+	}
+	
+	@ApiMethod (name="getScores", httpMethod=ApiMethod.HttpMethod.GET)
+	public List<Score> GetHighscores(){
+		Collections.sort(this.highscores);
+		return this.highscores.subList(0, Math.min(100, this.highscores.size()));
+	}
 	
 	@ApiMethod (name="request", httpMethod=ApiMethod.HttpMethod.GET)
 	public List<Battle> RequestRandomBattles(@Named("nbBattles") int nbBattles){
