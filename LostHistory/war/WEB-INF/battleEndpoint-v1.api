@@ -1,0 +1,110 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://lost-history.appspot.com/_ah/api",
+  "name" : "battleEndpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "discovery" : [ "PUBLIC" ],
+  "adapter" : {
+    "bns" : "https://lost-history.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "battleEndpoint.battle.request" : {
+      "path" : "battle",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "example.google.losthistory.JenaQuery.RequestRandomBattles",
+      "request" : {
+        "parameters" : {
+          "nbBattles" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Battle" : {
+        "id" : "Battle",
+        "type" : "object",
+        "properties" : {
+          "places" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Coordinate"
+            }
+          },
+          "participants" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "formattedParticipants" : {
+            "$ref" : "JsonMap"
+          },
+          "year" : {
+            "type" : "integer"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Coordinate" : {
+        "id" : "Coordinate",
+        "type" : "object",
+        "properties" : {
+        }
+      },
+      "JsonMap" : {
+        "id" : "JsonMap",
+        "type" : "object"
+      },
+      "BattleCollection" : {
+        "id" : "BattleCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Battle"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "example.google.losthistory.JenaQuery.RequestRandomBattles" : {
+        "response" : {
+          "$ref" : "BattleCollection"
+        }
+      }
+    }
+  }
+}
