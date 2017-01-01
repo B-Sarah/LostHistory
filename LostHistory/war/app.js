@@ -18,9 +18,10 @@ app.controller('MainController', ['$scope','GAuth', function($scope, GAuth) {
     $scope.highscores = false;
     $scope.loggedin = false;
     $scope.loggedin = false;
-    $scope.textLogin = "Login";
+    $scope.textLogin = "Sign in";
+    $scope.src = null;
+   
 
-    
     $scope.login = function() {
         GAuth.login().then(function(user) {
             $scope.user = user;

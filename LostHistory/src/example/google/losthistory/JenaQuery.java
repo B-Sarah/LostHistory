@@ -6,13 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.jena.datatypes.DatatypeFormatException;
-import org.apache.jena.query.*;
-
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
-import com.google.api.server.spi.config.ApiMethod.HttpMethod;
 import com.google.api.server.spi.config.Named;
+import com.hp.hpl.jena.query.*;
 
 /*
 prefix dbr: <http://fr.dbpedia.org/resource/>
@@ -41,7 +38,7 @@ order by ?nom
 @Api(name="battleEndpoint", version="v1")
 public class JenaQuery {
 	
-	@ApiMethod (name="battle.request", path="battle", httpMethod=ApiMethod.HttpMethod.GET)
+	@ApiMethod (name="request", httpMethod=ApiMethod.HttpMethod.GET)
 	public List<Battle> RequestRandomBattles(@Named("nbBattles") int nbBattles){
 		
 		List<Battle> battles = null;
