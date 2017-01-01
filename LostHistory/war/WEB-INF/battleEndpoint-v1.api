@@ -80,6 +80,12 @@
         "id" : "Coordinate",
         "type" : "object",
         "properties" : {
+          "latitude" : {
+            "type" : "number"
+          },
+          "longitude" : {
+            "type" : "number"
+          }
         }
       },
       "JsonMap" : {

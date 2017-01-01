@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/r8q73-590OuQr_ffH1e3hLsCwv4\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/StVR1Nfxl5bQBWVBugpa234cmAM\"",
  "discoveryVersion": "v1",
  "id": "battleEndpoint:v1",
  "name": "battleEndpoint",
@@ -11,10 +11,10 @@
   "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
  },
  "protocol": "rest",
- "baseUrl": "https://lost-history.appspot.com/_ah/api/battleEndpoint/v1/",
- "basePath": "/_ah/api/battleEndpoint/v1/",
+ "baseUrl": "https://lost-history.appspot.com/_ah/api/battleEndpoint/v1/RequestRandomBattles/",
+ "basePath": "/_ah/api/battleEndpoint/v1/RequestRandomBattles/",
  "rootUrl": "https://lost-history.appspot.com/_ah/api/",
- "servicePath": "battleEndpoint/v1/",
+ "servicePath": "battleEndpoint/v1/RequestRandomBattles/",
  "batchPath": "batch",
  "parameters": {
   "alt": {
@@ -113,39 +113,45 @@
   },
   "Coordinate": {
    "id": "Coordinate",
-   "type": "object"
+   "type": "object",
+   "properties": {
+    "latitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "longitude": {
+     "type": "number",
+     "format": "double"
+    }
+   }
   },
   "JsonMap": {
    "id": "JsonMap",
    "type": "object"
   }
  },
- "resources": {
-  "battle": {
-   "methods": {
-    "request": {
-     "id": "battleEndpoint.battle.request",
-     "path": "battle",
-     "httpMethod": "GET",
-     "parameters": {
-      "nbBattles": {
-       "type": "integer",
-       "required": true,
-       "format": "int32",
-       "location": "query"
-      }
-     },
-     "parameterOrder": [
-      "nbBattles"
-     ],
-     "response": {
-      "$ref": "BattleCollection"
-     },
-     "scopes": [
-      "https://www.googleapis.com/auth/userinfo.email"
-     ]
+ "methods": {
+  "request": {
+   "id": "battleEndpoint.request",
+   "path": "{nbBattles}",
+   "httpMethod": "GET",
+   "parameters": {
+    "nbBattles": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
     }
-   }
+   },
+   "parameterOrder": [
+    "nbBattles"
+   ],
+   "response": {
+    "$ref": "BattleCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
   }
  }
 }

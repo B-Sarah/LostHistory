@@ -1,9 +1,27 @@
 package example.google.losthistory;
 
-public class Coordinate{
+import java.io.Serializable;
+
+public class Coordinate implements Serializable{
 	double latitude;
 	double longitude;
 	
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
 	public Coordinate(double latitude, double longitude){
 		this.latitude = latitude;
 		this.longitude = longitude;

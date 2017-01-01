@@ -1,5 +1,6 @@
 package example.google.losthistory;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class Battle {
+public class Battle implements Serializable {
 	private List<Coordinate> places;
 	private List<String> participants;
 	private Map<String, Boolean> formattedParticipants;

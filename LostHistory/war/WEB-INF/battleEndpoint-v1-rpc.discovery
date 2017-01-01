@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/r8q73-590OuQr_ffH1e3hLsCwv4\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/StVR1Nfxl5bQBWVBugpa234cmAM\"",
  "discoveryVersion": "v1",
  "id": "battleEndpoint:v1",
  "name": "battleEndpoint",
@@ -111,7 +111,17 @@
   },
   "Coordinate": {
    "id": "Coordinate",
-   "type": "object"
+   "type": "object",
+   "properties": {
+    "latitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "longitude": {
+     "type": "number",
+     "format": "double"
+    }
+   }
   },
   "JsonMap": {
    "id": "JsonMap",
@@ -119,8 +129,8 @@
   }
  },
  "methods": {
-  "battleEndpoint.battle.request": {
-   "id": "battleEndpoint.battle.request",
+  "battleEndpoint.request": {
+   "id": "battleEndpoint.request",
    "allowGet": true,
    "parameters": {
     "nbBattles": {
