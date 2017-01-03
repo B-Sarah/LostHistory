@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/StVR1Nfxl5bQBWVBugpa234cmAM\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/YwmUKcpPUCvzZwHgdyJG7Cs2xC4\"",
  "discoveryVersion": "v1",
  "id": "battleEndpoint:v1",
  "name": "battleEndpoint",
@@ -73,8 +73,17 @@
    "id": "Battle",
    "type": "object",
    "properties": {
+    "formattedDates": {
+     "type": "array",
+     "items": {
+      "$ref": "DateFormatted"
+     }
+    },
     "formattedParticipants": {
-     "$ref": "JsonMap"
+     "type": "array",
+     "items": {
+      "$ref": "ParticpantFormatted"
+     }
     },
     "name": {
      "type": "string"
@@ -123,12 +132,82 @@
     }
    }
   },
-  "JsonMap": {
-   "id": "JsonMap",
-   "type": "object"
+  "DateFormatted": {
+   "id": "DateFormatted",
+   "type": "object",
+   "properties": {
+    "correct": {
+     "type": "boolean"
+    },
+    "year": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  },
+  "ParticpantFormatted": {
+   "id": "ParticpantFormatted",
+   "type": "object",
+   "properties": {
+    "correct": {
+     "type": "boolean"
+    },
+    "name": {
+     "type": "string"
+    }
+   }
+  },
+  "Score": {
+   "id": "Score",
+   "type": "object",
+   "properties": {
+    "score": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "username": {
+     "type": "string"
+    }
+   }
+  },
+  "ScoreCollection": {
+   "id": "ScoreCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Score"
+     }
+    }
+   }
   }
  },
  "methods": {
+  "battleEndpoint.getScores": {
+   "id": "battleEndpoint.getScores",
+   "allowGet": true,
+   "returns": {
+    "$ref": "ScoreCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "battleEndpoint.insertScore": {
+   "id": "battleEndpoint.insertScore",
+   "parameters": {
+    "resource": {
+     "$ref": "Score"
+    }
+   },
+   "parameterOrder": [
+    "resource"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
   "battleEndpoint.request": {
    "id": "battleEndpoint.request",
    "allowGet": true,

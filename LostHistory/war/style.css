@@ -1,46 +1,172 @@
-
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
+
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  background: url('photo1.jpeg');
-	background-size:cover;
-
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+	background: url('photo1.jpeg');
+	background-size: cover;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #080808;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60xp;
+	line-height: 60px; /* Vertically center the text there */
+	background-color: #080808;
 }
 
- .img-circle {
-        border-radius: 50%;
-    }
-    
- 
-	.btn-sample { 
-  color: #F0EFCC; 
-  background-color: #000000; 
-  border-color: #F0EFCC; 
-  margin: 0 auto;
-  
+.img-circle {
+	border-radius: 50%;
 }
+
 
 .home {
-   
-    text-align: center;
+	text-align: center;
 }
 
-.lock{
-	font-size:12px;
+.centerVertical {
+	text-align: center;
+	margin-top: 15%;
+	font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman,
+		serif;
 }
 
+.lock {
+	font-size: 12px;
+}
+
+.battleNameFormat {
+	font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman,
+		serif;
+	text-align: center;
+	font-weight: bold;
+	color: black;
+	text-shadow: 2px 2px 4px #5a2d0c;
+}
+
+.panel>.panel-heading {
+	background: url('header.jpg');
+	color: black;
+}
+
+.panel {
+	background: url('panel.jpg');
+	color: black;
+}
+
+.questionFormat {
+	font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman,
+		serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+.questionContentFormat {
+	font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman,
+		serif;
+	font-weight: bold;
+	padding-left: 3%;
+	color: white;
+	text-shadow: 2px 2px 4px black;
+	text-decoration: underline;
+}
+
+.score {
+	font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman,
+		serif;
+	color: white;
+	font-weight: bold;
+	padding-left: 3%;
+	text-shadow: 2px 2px 4px black;
+}
+
+
+
+.style{  
+  border : 0;
+  height: 1px; 
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+}
+
+.angular-google-map-container {
+	height:400px;
+}
+
+.btn-sample { 
+	font-family: Goudy Old Style, Garamond, Big Caslon, Times New Roman,
+		serif;
+font-wieght :bold;	
+  color: #FFFFFF; 
+  background-color: #7a543f; 
+  border-color: #BDAEA5; 
+	font-size: 5px;
+} 
+ 
+.btn-sample:hover, 
+.btn-sample:focus, 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  color: #FFFFFF; 
+  background-color: #AD8D75; 
+  border-color: #BDAEA5; 
+} 
+ 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  background-image: none; 
+} 
+ 
+.btn-sample.disabled, 
+.btn-sample[disabled], 
+fieldset[disabled] .btn-sample, 
+.btn-sample.disabled:hover, 
+.btn-sample[disabled]:hover, 
+fieldset[disabled] .btn-sample:hover, 
+.btn-sample.disabled:focus, 
+.btn-sample[disabled]:focus, 
+fieldset[disabled] .btn-sample:focus, 
+.btn-sample.disabled:active, 
+.btn-sample[disabled]:active, 
+fieldset[disabled] .btn-sample:active, 
+.btn-sample.disabled.active, 
+.btn-sample[disabled].active, 
+fieldset[disabled] .btn-sample.active { 
+  background-color: #4D3128; 
+  border-color: #BDAEA5; 
+} 
+ 
+.btn-sample .badge { 
+  color: #4D3128; 
+  background-color: #FFFFFF; 
+}
+
+/*
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+*/

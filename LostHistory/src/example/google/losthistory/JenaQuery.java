@@ -41,9 +41,9 @@ public class JenaQuery {
 	
 	List<Score> highscores = new ArrayList<Score>();
 	
-	@ApiMethod (name="insertScore", httpMethod=ApiMethod.HttpMethod.GET)
-	public void InsertScore(@Named("username") String username, @Named("score") int score){
-		highscores.add(new Score(username, score));
+	@ApiMethod (name="insertScore", httpMethod=ApiMethod.HttpMethod.POST)
+	public void InsertScore(Score score){
+		highscores.add(score);
 	}
 	
 	@ApiMethod (name="getScores", httpMethod=ApiMethod.HttpMethod.GET)
@@ -145,6 +145,7 @@ public class JenaQuery {
 				
 		for(Battle battle : battles){
 			battle.PickFormattedParticipants(participantPool);
+			battle.PickFormattedDates();
 			System.out.println(battle);
 		}
 		

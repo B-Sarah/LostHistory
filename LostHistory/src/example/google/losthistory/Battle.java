@@ -1,6 +1,7 @@
 package example.google.losthistory;
 
 import java.io.Serializable;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,7 +12,8 @@ import java.util.Random;
 public class Battle implements Serializable {
 	private List<Coordinate> places;
 	private List<String> participants;
-	private Map<String, Boolean> formattedParticipants;
+	private List<ParticpantFormatted> formattedParticipants;
+	private List<DateFormatted> formattedDates;
 	private int year;
 	private String name;
 	
@@ -19,7 +21,8 @@ public class Battle implements Serializable {
 		this.name = name;
 		this.places = new ArrayList<Coordinate>();
 		this.participants = new ArrayList<String>();
-		this.formattedParticipants = new HashMap<String, Boolean>();
+		this.formattedParticipants = new ArrayList<ParticpantFormatted>();
+		this.formattedDates = new ArrayList<DateFormatted>();
 	}
 	
 	public void AddParticipant(String participant){
@@ -82,25 +85,53 @@ public class Battle implements Serializable {
 		Random rdm = new Random();
 		int picked = rdm.nextInt(this.participants.size())+1;
 		for(int i = 0; i < picked; i++){
-			this.formattedParticipants.put(this.participants.get(i), true);
+			this.formattedParticipants.add(new ParticpantFormatted(participants.get(i), true));
 		}
 		for(int i = 0; i < 4-picked; i++){
 			String rdmPart = "";
 			do{
 				rdmPart = pList.get(rdm.nextInt(pList.size()));
-			} while(this.formattedParticipants.containsKey(rdmPart));
-			this.formattedParticipants.put(rdmPart, false);
+			} while(ListParticipantContains(rdmPart));
+			this.formattedParticipants.add(new ParticpantFormatted(rdmPart, false));
 		}
 	}
 	
+	private boolean ListParticipantContains(String str){
+		boolean contained = false;
+		for(ParticpantFormatted e : this.formattedParticipants){
+			if(e.getName().equals(str)){
+				contained = true;
+				break;
+			}
+		}
+		return contained;
+	}
 	
+	public void PickFormattedDates(){
+		Random rdm = new Random();
+		this.formattedDates.add(new DateFormatted(year, true));
+		for(int i = 0; i < 3; i++){
+			this.formattedDates.add(new DateFormatted(rdm.nextInt(2017+2000)-2000, false));
+		}
+		Collections.shuffle(this.formattedDates);
+	}
+
 	
-	public Map<String, Boolean> getFormattedParticipants() {
+
+	public List<ParticpantFormatted> getFormattedParticipants() {
 		return formattedParticipants;
 	}
 
-	public void setFormattedParticipants(Map<String, Boolean> formattedParticipants) {
+	public void setFormattedParticipants(List<ParticpantFormatted> formattedParticipants) {
 		this.formattedParticipants = formattedParticipants;
+	}
+
+	public List<DateFormatted> getFormattedDates() {
+		return formattedDates;
+	}
+
+	public void setFormattedDates(List<DateFormatted> formattedDates) {
+		this.formattedDates = formattedDates;
 	}
 
 	public void setName(String name) {
@@ -114,6 +145,12 @@ public class Battle implements Serializable {
 		str += "[ name         : " + this.name + "\n";
 		str += "  year         : " + this.year + "\n";
 		
+		str += "  formatted year : [\n";
+		for(DateFormatted e : this.formattedDates){
+			str += "  \t" + e.getYear() + " : " + e.isCorrect() + "\n";
+		}
+		str += "                 ]\n";
+		
 		str += "  participants : [\n";
 		for(String p : this.participants){
 			str += "  \t" + p + "\n";
@@ -121,8 +158,8 @@ public class Battle implements Serializable {
 		str += "                 ]\n";
 		
 		str += "  formatted participants : [\n";
-		for(Map.Entry<String, Boolean> e : this.formattedParticipants.entrySet()){
-			str += "  \t" + e.getKey() + " : " + e.getValue() + "\n";
+		for(ParticpantFormatted e : this.formattedParticipants){
+			str += "  \t" + e.getName() + " : " + e.isCorrect() + "\n";
 		}
 		str += "                 ]\n";
 		

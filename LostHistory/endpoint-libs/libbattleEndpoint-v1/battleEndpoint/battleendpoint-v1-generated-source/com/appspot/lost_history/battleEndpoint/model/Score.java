@@ -19,7 +19,7 @@
 package com.appspot.lost_history.battleEndpoint.model;
 
 /**
- * Model definition for BattleCollection.
+ * Model definition for Score.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the battleEndpoint. For a detailed explanation see:
@@ -29,37 +29,58 @@ package com.appspot.lost_history.battleEndpoint.model;
  * @author Google, Inc.
  */
 @SuppressWarnings("javadoc")
-public final class BattleCollection extends com.google.api.client.json.GenericJson {
+public final class Score extends com.google.api.client.json.GenericJson {
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<Battle> items;
+  private java.lang.Integer score;
+
+  /**
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String username;
 
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<Battle> getItems() {
-    return items;
+  public java.lang.Integer getScore() {
+    return score;
   }
 
   /**
-   * @param items items or {@code null} for none
+   * @param score score or {@code null} for none
    */
-  public BattleCollection setItems(java.util.List<Battle> items) {
-    this.items = items;
+  public Score setScore(java.lang.Integer score) {
+    this.score = score;
+    return this;
+  }
+
+  /**
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getUsername() {
+    return username;
+  }
+
+  /**
+   * @param username username or {@code null} for none
+   */
+  public Score setUsername(java.lang.String username) {
+    this.username = username;
     return this;
   }
 
   @Override
-  public BattleCollection set(String fieldName, Object value) {
-    return (BattleCollection) super.set(fieldName, value);
+  public Score set(String fieldName, Object value) {
+    return (Score) super.set(fieldName, value);
   }
 
   @Override
-  public BattleCollection clone() {
-    return (BattleCollection) super.clone();
+  public Score clone() {
+    return (Score) super.clone();
   }
 
 }

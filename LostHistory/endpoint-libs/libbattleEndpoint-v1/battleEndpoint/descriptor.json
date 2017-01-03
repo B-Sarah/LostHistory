@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/battleEndpoint/v1/20170101183844/java/1.21.0/lost_history_appspot_com-battleEndpoint-v1-20170101183844-java-1.21.0-sources.jar", 
-      "path": "lost_history_appspot_com-battleEndpoint-v1-20170101183844-java-1.21.0-sources.jar", 
+      "downloadUrl": "/downloads/battleEndpoint/v1/20170102200905/java/1.21.0/lost_history_appspot_com-battleEndpoint-v1-20170102200905-java-1.21.0-sources.jar", 
+      "path": "lost_history_appspot_com-battleEndpoint-v1-20170102200905-java-1.21.0-sources.jar", 
       "type": "source", 
-      "timestamp": "2017-01-01 18:38"
+      "timestamp": "2017-01-02 20:09"
     }, 
     {
-      "path": "lost_history_appspot_com-battleEndpoint-v1-20170101183844-java-1.21.0.jar.properties", 
+      "path": "lost_history_appspot_com-battleEndpoint-v1-20170102200905-java-1.21.0.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -674,5 +674,5 @@
   "version": "v1", 
   "language_version": "1.21.0", 
   "id": "battleEndpoint:v1", 
-  "revision": 20170101183844
+  "revision": 20170102200905
 }

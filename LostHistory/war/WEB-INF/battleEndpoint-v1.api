@@ -45,6 +45,37 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
+    },
+    "battleEndpoint.getScores" : {
+      "path" : "GetHighscores",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "example.google.losthistory.JenaQuery.GetHighscores",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "battleEndpoint.insertScore" : {
+      "path" : "InsertScore",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "example.google.losthistory.JenaQuery.InsertScore",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "empty"
+      }
     }
   },
   "descriptor" : {
@@ -66,7 +97,16 @@
             }
           },
           "formattedParticipants" : {
-            "$ref" : "JsonMap"
+            "type" : "array",
+            "items" : {
+              "$ref" : "ParticpantFormatted"
+            }
+          },
+          "formattedDates" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "DateFormatted"
+            }
           },
           "year" : {
             "type" : "integer"
@@ -88,9 +128,29 @@
           }
         }
       },
-      "JsonMap" : {
-        "id" : "JsonMap",
-        "type" : "object"
+      "ParticpantFormatted" : {
+        "id" : "ParticpantFormatted",
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "correct" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "DateFormatted" : {
+        "id" : "DateFormatted",
+        "type" : "object",
+        "properties" : {
+          "year" : {
+            "type" : "integer"
+          },
+          "correct" : {
+            "type" : "boolean"
+          }
+        }
       },
       "BattleCollection" : {
         "id" : "BattleCollection",
@@ -103,12 +163,46 @@
             }
           }
         }
+      },
+      "Score" : {
+        "id" : "Score",
+        "type" : "object",
+        "properties" : {
+          "score" : {
+            "type" : "integer"
+          },
+          "username" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ScoreCollection" : {
+        "id" : "ScoreCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Score"
+            }
+          }
+        }
       }
     },
     "methods" : {
       "example.google.losthistory.JenaQuery.RequestRandomBattles" : {
         "response" : {
           "$ref" : "BattleCollection"
+        }
+      },
+      "example.google.losthistory.JenaQuery.GetHighscores" : {
+        "response" : {
+          "$ref" : "ScoreCollection"
+        }
+      },
+      "example.google.losthistory.JenaQuery.InsertScore" : {
+        "request" : {
+          "$ref" : "Score"
         }
       }
     }

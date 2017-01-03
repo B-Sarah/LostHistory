@@ -19,7 +19,7 @@
 package com.appspot.lost_history.battleEndpoint.model;
 
 /**
- * Model definition for BattleCollection.
+ * Model definition for DateFormatted.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the battleEndpoint. For a detailed explanation see:
@@ -29,37 +29,58 @@ package com.appspot.lost_history.battleEndpoint.model;
  * @author Google, Inc.
  */
 @SuppressWarnings("javadoc")
-public final class BattleCollection extends com.google.api.client.json.GenericJson {
+public final class DateFormatted extends com.google.api.client.json.GenericJson {
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<Battle> items;
+  private java.lang.Boolean correct;
+
+  /**
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.Integer year;
 
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<Battle> getItems() {
-    return items;
+  public java.lang.Boolean getCorrect() {
+    return correct;
   }
 
   /**
-   * @param items items or {@code null} for none
+   * @param correct correct or {@code null} for none
    */
-  public BattleCollection setItems(java.util.List<Battle> items) {
-    this.items = items;
+  public DateFormatted setCorrect(java.lang.Boolean correct) {
+    this.correct = correct;
+    return this;
+  }
+
+  /**
+   * @return value or {@code null} for none
+   */
+  public java.lang.Integer getYear() {
+    return year;
+  }
+
+  /**
+   * @param year year or {@code null} for none
+   */
+  public DateFormatted setYear(java.lang.Integer year) {
+    this.year = year;
     return this;
   }
 
   @Override
-  public BattleCollection set(String fieldName, Object value) {
-    return (BattleCollection) super.set(fieldName, value);
+  public DateFormatted set(String fieldName, Object value) {
+    return (DateFormatted) super.set(fieldName, value);
   }
 
   @Override
-  public BattleCollection clone() {
-    return (BattleCollection) super.clone();
+  public DateFormatted clone() {
+    return (DateFormatted) super.clone();
   }
 
 }

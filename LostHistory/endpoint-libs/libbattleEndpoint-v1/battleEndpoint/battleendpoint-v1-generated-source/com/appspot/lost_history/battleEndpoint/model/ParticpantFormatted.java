@@ -19,7 +19,7 @@
 package com.appspot.lost_history.battleEndpoint.model;
 
 /**
- * Model definition for BattleCollection.
+ * Model definition for ParticpantFormatted.
  *
  * <p> This is the Java data model class that specifies how to parse/serialize into the JSON that is
  * transmitted over HTTP when working with the battleEndpoint. For a detailed explanation see:
@@ -29,37 +29,58 @@ package com.appspot.lost_history.battleEndpoint.model;
  * @author Google, Inc.
  */
 @SuppressWarnings("javadoc")
-public final class BattleCollection extends com.google.api.client.json.GenericJson {
+public final class ParticpantFormatted extends com.google.api.client.json.GenericJson {
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<Battle> items;
+  private java.lang.Boolean correct;
+
+  /**
+   * The value may be {@code null}.
+   */
+  @com.google.api.client.util.Key
+  private java.lang.String name;
 
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<Battle> getItems() {
-    return items;
+  public java.lang.Boolean getCorrect() {
+    return correct;
   }
 
   /**
-   * @param items items or {@code null} for none
+   * @param correct correct or {@code null} for none
    */
-  public BattleCollection setItems(java.util.List<Battle> items) {
-    this.items = items;
+  public ParticpantFormatted setCorrect(java.lang.Boolean correct) {
+    this.correct = correct;
+    return this;
+  }
+
+  /**
+   * @return value or {@code null} for none
+   */
+  public java.lang.String getName() {
+    return name;
+  }
+
+  /**
+   * @param name name or {@code null} for none
+   */
+  public ParticpantFormatted setName(java.lang.String name) {
+    this.name = name;
     return this;
   }
 
   @Override
-  public BattleCollection set(String fieldName, Object value) {
-    return (BattleCollection) super.set(fieldName, value);
+  public ParticpantFormatted set(String fieldName, Object value) {
+    return (ParticpantFormatted) super.set(fieldName, value);
   }
 
   @Override
-  public BattleCollection clone() {
-    return (BattleCollection) super.clone();
+  public ParticpantFormatted clone() {
+    return (ParticpantFormatted) super.clone();
   }
 
 }
